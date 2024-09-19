@@ -723,44 +723,6 @@ public class EntityVillagerMCA extends EntityVillager {
             case "gui.button.hunting":
                 startChore(EnumChore.HUNT, player);
                 break;
-    // Constructor for the entity 
-    public CustomSwordEntity(EntityType<? extends VillagerRegistry.class> entityType, World worldIn) {
-        super(entityType, worldIn);
-    }
-
-    // Define attributes for the entity, like health and movement speed
-    public static AttributeModifierMap.MutableAttribute createAttributes() {
-        return VillagerRegistry.class.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 30.0D)  // Custom health
-                .add(Attributes.MOVEMENT_SPEED, 0.25D);  // Custom movement speed
-    }
-
-    @Override
-    public void tick() {
-        super.tick();
-
-        // Check if the entity is holding a sword, if not give it one
-        if (!this.getMainHandItem().isEmpty() && this.getMainHandItem().getItem() instanceof SwordItem) {
-            // Entity already has a sword
-            return;
-        }
-
-        // Set a default sword (e.g., iron sword) if it doesn't have one
-        this.setItemInHand(Hand.MAIN_HAND, new ItemStack(Items.IRON_SWORD));
-    }
-
-    // Override this method to allow the entity to attack using the sword
-    @Override
-    public boolean doHurtTarget(LivingEntity target) {
-        // Check if the entity has a sword
-        ItemStack heldItem = this.getMainHandItem();
-        if (heldItem.getItem() instanceof SwordItem) {
-            // Perform a normal attack
-            return super.doHurtTarget(target);
-        }
-        return false;
-    }
-}
             case "gui.button.fishing":
                 startChore(EnumChore.FISH, player);
                 break;
