@@ -3,7 +3,7 @@
   "modid": "mca",
   "name": "Minecraft Comes Alive",
   "description": "Replaces villagers with humans, adds marriage, children, and more!",
-  "version": "${version}",
+  "version": "${modversion}",
   "mcversion": "${mcversion}",
   "url": "https://minecraftcomesalive.com/",
   "updateUrl": "",

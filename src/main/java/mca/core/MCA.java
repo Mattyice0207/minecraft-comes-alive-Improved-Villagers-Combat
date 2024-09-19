@@ -85,7 +85,7 @@ public class MCA {
         config = new Config(event);
         creativeTab = new CreativeTabs("MCA") {
             @Override
-            public ItemStack getTabIconItem() {
+            public ItemStack createIcon() {
                 return new ItemStack(ItemsMCA.ENGAGEMENT_RING);
             }
         };

@@ -723,44 +723,6 @@ public class EntityVillagerMCA extends EntityVillager {
             case "gui.button.hunting":
                 startChore(EnumChore.HUNT, player);
                 break;
-    // Constructor for the entity 
-    public CustomSwordEntity(EntityType<? extends VillagerRegistry.class> entityType, World worldIn) {
-        super(entityType, worldIn);
-    }
-
-    // Define attributes for the entity, like health and movement speed
-    public static AttributeModifierMap.MutableAttribute createAttributes() {
-        return VillagerRegistry.class.createMonsterAttributes()
-                .add(Attributes.MAX_HEALTH, 30.0D)  // Custom health
-                .add(Attributes.MOVEMENT_SPEED, 0.25D);  // Custom movement speed
-    }
-
-    @Override
-    public void tick() {
-        super.tick();
-
-        // Check if the entity is holding a sword, if not give it one
-        if (!this.getMainHandItem().isEmpty() && this.getMainHandItem().getItem() instanceof SwordItem) {
-            // Entity already has a sword
-            return;
-        }
-
-        // Set a default sword (e.g., iron sword) if it doesn't have one
-        this.setItemInHand(Hand.MAIN_HAND, new ItemStack(Items.IRON_SWORD));
-    }
-
-    // Override this method to allow the entity to attack using the sword
-    @Override
-    public boolean doHurtTarget(LivingEntity target) {
-        // Check if the entity has a sword
-        ItemStack heldItem = this.getMainHandItem();
-        if (heldItem.getItem() instanceof SwordItem) {
-            // Perform a normal attack
-            return super.doHurtTarget(target);
-        }
-        return false;
-    }
-}
             case "gui.button.fishing":
                 startChore(EnumChore.FISH, player);
                 break;
@@ -1047,8 +1009,8 @@ public class EntityVillagerMCA extends EntityVillager {
                 final EnumFacing enumfacing = state.getBlock() instanceof BlockHorizontal ? state.getValue(BlockHorizontal.FACING) : null;
 
                 if (enumfacing != null) {
-                    float f1 = 0.5F + (float) enumfacing.getFrontOffsetX() * 0.4F;
-                    float f = 0.5F + (float) enumfacing.getFrontOffsetZ() * 0.4F;
+                    float f1 = 0.5F + (float) enumfacing.getXOffset() * 0.4F;
+                    float f = 0.5F + (float) enumfacing.getZOffset() * 0.4F;
                     this.setRenderOffsetForSleep(enumfacing);
                     this.setPosition((double) ((float) bedLocation.getX() + f1), (double) ((float) bedLocation.getY() + 0.6875F), (double) ((float) bedLocation.getZ() + f));
                 } else {
@@ -1070,8 +1032,8 @@ public class EntityVillagerMCA extends EntityVillager {
     }
 
     private void setRenderOffsetForSleep(EnumFacing bedDirection) {
-        this.renderOffsetX = -1.0F * (float) bedDirection.getFrontOffsetX();
-        this.renderOffsetZ = -1.0F * (float) bedDirection.getFrontOffsetZ();
+        this.renderOffsetX = -1.0F * (float) bedDirection.getXOffset();
+        this.renderOffsetZ = -1.0F * (float) bedDirection.getZOffset();
     }
 
     public void startSleeping() {

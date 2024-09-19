@@ -30,9 +30,9 @@ public final class ItemsMCA {
     public static final Item MATCHMAKERS_RING = new ItemMatchmakersRing().setMaxStackSize(2);
     public static final Item BABY_BOY = new ItemBaby(true);
     public static final Item BABY_GIRL = new ItemBaby(false);
-    public static final Item ROSE_GOLD_INGOT = new Item().setUnlocalizedName("rose_gold_ingot");
-    public static final Item ROSE_GOLD_DUST = new Item().setUnlocalizedName("rose_gold_dust");
-    public static final Item GOLD_DUST = new Item().setUnlocalizedName("gold_dust");
+    public static final Item ROSE_GOLD_INGOT = new Item().setTranslationKey("rose_gold_ingot");
+    public static final Item ROSE_GOLD_DUST = new Item().setTranslationKey("rose_gold_dust");
+    public static final Item GOLD_DUST = new Item().setTranslationKey("gold_dust");
     public static final Item VILLAGER_EDITOR = new ItemVillagerEditor();
     public static final Item STAFF_OF_LIFE = new ItemStaffOfLife();
     public static final Item WHISTLE = new ItemWhistle();
@@ -267,7 +267,7 @@ public final class ItemsMCA {
     }
 
     private static void setItemName(Item item, String itemName) {
-        item.setUnlocalizedName(itemName);
+        item.setTranslationKey(itemName);
         item.setRegistryName(new ResourceLocation(MCA.MODID + ":" + itemName));
     }
 }
