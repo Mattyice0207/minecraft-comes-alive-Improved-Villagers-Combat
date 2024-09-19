@@ -1,0 +1,11 @@
+[versions]
+
+[libraries]
+mixinBooter = { module = "zone.rong:mixinbooter", version = "8.9" }
+
+curse-hei = { module = "curse.maven:had-enough-items-557549", version = "5229422" }
+
+curse-spark = { module = "curse.maven:spark-361579", version = "3542217" }
+
+# Utilities
+lombok = { module = "org.projectlombok:lombok", version = "1.18.34" }
