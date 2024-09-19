@@ -1009,8 +1009,8 @@ public class EntityVillagerMCA extends EntityVillager {
                 final EnumFacing enumfacing = state.getBlock() instanceof BlockHorizontal ? state.getValue(BlockHorizontal.FACING) : null;
 
                 if (enumfacing != null) {
-                    float f1 = 0.5F + (float) enumfacing.getFrontOffsetX() * 0.4F;
-                    float f = 0.5F + (float) enumfacing.getFrontOffsetZ() * 0.4F;
+                    float f1 = 0.5F + (float) enumfacing.getXOffset() * 0.4F;
+                    float f = 0.5F + (float) enumfacing.getZOffset() * 0.4F;
                     this.setRenderOffsetForSleep(enumfacing);
                     this.setPosition((double) ((float) bedLocation.getX() + f1), (double) ((float) bedLocation.getY() + 0.6875F), (double) ((float) bedLocation.getZ() + f));
                 } else {
@@ -1032,8 +1032,8 @@ public class EntityVillagerMCA extends EntityVillager {
     }
 
     private void setRenderOffsetForSleep(EnumFacing bedDirection) {
-        this.renderOffsetX = -1.0F * (float) bedDirection.getFrontOffsetX();
-        this.renderOffsetZ = -1.0F * (float) bedDirection.getFrontOffsetZ();
+        this.renderOffsetX = -1.0F * (float) bedDirection.getXOffset();
+        this.renderOffsetZ = -1.0F * (float) bedDirection.getZOffset();
     }
 
     public void startSleeping() {
